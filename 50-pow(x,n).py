@@ -7,10 +7,10 @@ class Solution:
         return x*self.myPow(x,n-1)
         
 
-//better approach
+#better approach
 class Solution:
     def findPow(self,x,n):
-        if x==0:
+        if n==0:
             return 1
         a=self.findPow(x,n//2)
         if n%2==0:
@@ -19,7 +19,12 @@ class Solution:
             return a*a*x 
 
     def myPow(self, x: float, n: int) -> float:
-        if n>0:
+        if n>=0:
+            return self.findPow(x,n)
+        if n<0:
+            return self.myPow(1/x,-n )
+        
+        
             return self.findPow(x,n)
         if n<0:
             return self.myPow(1/x,-n )
